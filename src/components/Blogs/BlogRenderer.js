@@ -3,14 +3,14 @@ import Card from "../UI/Card";
 import "../UI/Loader.css";
 
 const BlogRenderer = (props) => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState({});
   const [loading, setLoading] = useState(undefined);
 
   useEffect(() => {
-    foundedBlogs();
-  });
+    foundBlogs();
+  }, [props]);
 
-  const foundedBlogs = async () => {
+  const foundBlogs = async () => {
     try {
       if (props.keyword.length > 0) {
         const res = await fetch(
