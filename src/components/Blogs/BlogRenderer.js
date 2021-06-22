@@ -20,7 +20,7 @@ const BlogRenderer = (props) => {
         setLoading(true);
       }
     } catch (err) {
-      console.log("Somethinf went wrong", err);
+      console.log("Something went wrong", err);
     }
   };
 
