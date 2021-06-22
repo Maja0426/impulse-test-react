@@ -17,14 +17,19 @@ const BlogRenderer = (props) => {
           `https://impulseblog-api.herokuapp.com/api/posts?keyword=${props.keyword}`
         );
         setItems(await res.json());
-        setLoading(true);
+      } else {
+        const res = await fetch(
+          `https://impulseblog-api.herokuapp.com/api/posts`
+        );
+        setItems(await res.json());
       }
+      setLoading(true);
     } catch (err) {
       console.log("Something went wrong", err);
     }
   };
 
-  if (props.keyword.length > 0 && !loading) {
+  if (!loading) {
     return (
       <div className='loader-container'>
         <div className='loader-item'></div>

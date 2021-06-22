@@ -49,6 +49,14 @@ const Content = (props) => {
           tagjeiben vagy törzsében egész szóként szerepel a megadott keresési
           kulcsszó.
         </p>
+        <hr />
+        <p>
+          Az API Node.js, MongoDB adatbázist használ. A Heroku free Dyno-jába
+          van telepítve, így ha egy ideig nincs használatban, akkor suspend
+          módba kerül. Ez azt jelenti hogy az első lekérdezésre a válasz elég
+          sok ideig tart, de utána minden ok. Ez nem hiba, a Heroku működéséből
+          adódik.
+        </p>
       </div>
     </Jumbotron>
   );
