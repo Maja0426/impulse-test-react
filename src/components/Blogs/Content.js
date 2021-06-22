@@ -3,7 +3,7 @@ import Jumbotron from "../UI/Jumbotron";
 import BlogRenderer from "./BlogRenderer";
 import Search from "./Search";
 
-const Content = (props) => {
+const Content = () => {
   const [clickedBtn, setClickedBtn] = useState(false);
   const [findBlogKeyword, setFindBlogKeyword] = useState("");
 

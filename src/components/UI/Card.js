@@ -14,7 +14,7 @@ const Card = (props) => {
       <div className='card-footer'>
         {props.tags.map((tag) => (
           <span className='pill' key={Math.random()}>
-            #{tag}{" "}
+            #{tag}
           </span>
         ))}
       </div>
