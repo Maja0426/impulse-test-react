@@ -1,22 +1,36 @@
 import React, { useState, useEffect } from "react";
 import Card from "../UI/Card";
+import "../UI/Loader.css";
 
 const BlogRenderer = (props) => {
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(undefined);
 
   useEffect(() => {
-    if (props.keyword.length > 0) {
-      foundedBlogs();
-    }
+    foundedBlogs();
   });
 
   const foundedBlogs = async () => {
-    const res = await fetch(
-      `https://impulseblog-api.herokuapp.com/api/posts?keyword=${props.keyword}`
-    );
-    const datas = await res.json();
-    setItems(datas);
+    try {
+      if (props.keyword.length > 0) {
+        const res = await fetch(
+          `https://impulseblog-api.herokuapp.com/api/posts?keyword=${props.keyword}`
+        );
+        setItems(await res.json());
+        setLoading(true);
+      }
+    } catch (err) {
+      console.log("Somethinf went wrong", err);
+    }
   };
+
+  if (props.keyword.length > 0 && !loading) {
+    return (
+      <div className='loader-container'>
+        <div className='loader-item'></div>
+      </div>
+    );
+  }
 
   return (
     <article>

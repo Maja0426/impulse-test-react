@@ -28,7 +28,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-bg);
+  background-color: var(--dark-color);
 }
 
 @media (max-width: 768px) {
