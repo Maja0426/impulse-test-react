@@ -1,0 +1,41 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 2px solid var(--dark-color);
+  margin: 2rem auto;
+}
+
+.card-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-header h3 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.card-body {
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--dark-color);
+  height: fit-content;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.pill {
+  background-color: var(--dark-color);
+  color: var(--secondary-bg);
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem 0 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

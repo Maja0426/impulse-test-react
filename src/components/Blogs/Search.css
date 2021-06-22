@@ -1,0 +1,42 @@
+.input-wrapper form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  height: 2rem;
+  padding: 0;
+  padding-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+input {
+  height: 4rem;
+  width: 100%;
+  border: 4px solid var(--dark-color);
+  font-size: 1.8rem;
+  padding: 0 1rem;
+}
+
+input {
+  outline: none;
+}
+
+.submit-btn {
+  height: 4rem;
+  border-left: none;
+  background-color: var(--secondary-bg);
+  color: var(--dark-color);
+}
+
+@media (max-width: 768px) {
+  input,
+  .submit-btn {
+    height: 3rem;
+  }
+
+  input {
+    font-size: 1.2rem;
+  }
+}

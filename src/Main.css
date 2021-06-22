@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  --blue: #4bbfeb;
+  --dark-color: #203343;
+  --primary-bg: #ffffff;
+  --secondary-bg: #fcd164;
+  --secondary-dark-color: #455a6b;
+}
+
+body {
+  margin: 5% 15%;
+}
+
+body::-webkit-scrollbar {
+  width: 0.55rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--primary-bg);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-bg);
+}
+
+@media (max-width: 768px) {
+  body {
+    margin: 3%;
+  }
+}
