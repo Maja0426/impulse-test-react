@@ -1,27 +1,25 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import "./Search.css";
 
 const Search = (props) => {
-  const [enteredInput, setEnteredInput] = useState("");
-  const inputHandler = (e) => {
-    setEnteredInput(e.target.value);
-  };
+  const searchInput = useRef();
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const enteredInput = searchInput.current.value;
     props.onSearch(enteredInput);
-    setEnteredInput("");
+    searchInput.current.value = "";
   };
 
   return (
     <div className='input-wrapper'>
       <form onSubmit={submitHandler}>
-        <label aria-label='search'></label>
+        <label aria-label='search' htmlFor='searchBar'></label>
         <input
+          id='searchBar'
           type='text'
           placeholder='Search'
-          value={enteredInput}
-          onChange={inputHandler}
+          ref={searchInput}
         />
         <button type='submit' className='submit-btn'>
           Keresés

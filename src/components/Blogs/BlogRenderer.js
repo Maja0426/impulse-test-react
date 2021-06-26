@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Card from "../UI/Card";
-import "../UI/Loader.css";
+import Loader from "../UI/Loader";
 
-const BlogRenderer = (props) => {
+const BlogRenderer = ({ keyword }) => {
   const [items, setItems] = useState({});
   const [loading, setLoading] = useState(undefined);
 
   useEffect(() => {
     foundBlogs();
-  }, [props]);
+  }, [keyword]);
 
   const foundBlogs = async () => {
     try {
-      if (props.keyword.length > 0) {
+      if (keyword.length > 0) {
         const res = await fetch(
-          `https://impulseblog-api.herokuapp.com/api/posts?keyword=${props.keyword}`
+          `https://impulseblog-api.herokuapp.com/api/posts?keyword=${keyword}`
         );
         setItems(await res.json());
       } else {
@@ -29,26 +29,24 @@ const BlogRenderer = (props) => {
     }
   };
 
-  if (!loading) {
-    return (
-      <div className='loader-container'>
-        <div className='loader-item'></div>
-      </div>
-    );
-  }
-
   return (
-    <article>
-      {items.map((item) => (
-        <Card
-          key={item._id}
-          title={item.title}
-          author={item.author}
-          body={item.body}
-          tags={item.tags}
-        />
-      ))}
-    </article>
+    <React.Fragment>
+      {!loading ? (
+        <Loader />
+      ) : (
+        <article>
+          {items.map(({ _id, title, author, body, tags }) => (
+            <Card
+              key={_id}
+              title={title}
+              author={author}
+              body={body}
+              tags={tags}
+            />
+          ))}
+        </article>
+      )}
+    </React.Fragment>
   );
 };
 

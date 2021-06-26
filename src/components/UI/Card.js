@@ -1,18 +1,18 @@
 import React from "react";
 import "./Card.css";
 
-const Card = (props) => {
+const Card = ({ title, author, body, tags }) => {
   return (
     <div className='card'>
       <div className='card-header'>
-        <h2>{props.title}</h2>
-        <h3>Szerző: {props.author}</h3>
+        <h2>{title}</h2>
+        <h3>Szerző: {author}</h3>
       </div>
       <div className='card-body'>
-        <p>{props.body}</p>
+        <p>{body}</p>
       </div>
       <div className='card-footer'>
-        {props.tags.map((tag) => (
+        {tags.map((tag) => (
           <span className='pill' key={Math.random()}>
             #{tag}
           </span>
